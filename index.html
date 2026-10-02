@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingreso de Solicitud al SICE - IHTT</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #f4f4f9;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Botón discreto de impresión en la esquina superior derecha */
+    .print-link {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: #888888;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.2s ease;
+    }
+
+    .print-link:hover {
+      color: #555555;
+      text-decoration: underline;
+    }
+
+    /* Contenedor principal largo tipo hoja A4 */
+    .document-container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 850px;
+      min-height: 1100px; /* Hoja más larga sin mover el texto */
+      padding: 40px 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Encabezado */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      gap: 20px;
+    }
+
+    .qr-section {
+      flex: 0 0 auto;
+    }
+
+    .qr-section img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+    }
+
+    .logo-section {
+      flex: 1;
+      display: flex;
+      justify-content: center; /* Centrado de la sección del logo */
+      align-items: center;
+    }
+
+    .ihtt-logo-img {
+      max-width: 100%;
+      max-height: 120px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Contenido principal del comprobante */
+    .content {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: underline;
+      letter-spacing: 0.5px;
+      margin-bottom: 30px;
+      color: #000;
+    }
+
+    .info-line {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      word-spacing: 2px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-note {
+      margin-top: 60px;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+    }
+
+    /* Estilos para impresión */
+    @media print {
+      body {
+        background-color: #fff;
+        padding: 0;
+      }
+      .document-container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+        min-height: auto;
+        margin-top: 0;
+      }
+      .print-link {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Enlace discreto de impresión en gris claro -->
+  <button class="print-link" onclick="window.print()">Imprimir / PDF</button>
+
+  <div class="document-container">
+    <div class="header">
+      <!-- Código QR local -->
+      <div class="qr-section">
+        <img src="codigo.png" alt="Código QR de Verificación">
+      </div>
+
+      <!-- Imagen del Logo -->
+      <div class="logo-section">
+        <img src="logo.png" alt="Instituto Hondureño del Transporte Terrestre - IHTT" class="ihtt-logo-img">
+      </div>
+    </div>
+
+    <!-- Contenido del Comprobante -->
+    <div class="content">
+      <div class="title">INGRESO DE SOLICITUD AL SICE</div>
+
+      <div class="info-line">
+        <span>No. DE SOLICITUD SOL002911415</span>
+        <span>No. DE EXPEDIENTE</span>
+      </div>
+
+      <div class="info-line">
+        <span>20261222CNE01115-00949</span>
+        <span>FECHA: 2026-09-17 09:42:14.900</span>
+      </div>
+
+      <div class="footer-note">
+        "ESTE COMPROBANTE NO BRINDA EL DERECHO A OPERAR UNA UNIDAD DE TRANSPORTE"
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
